@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/mm_listitem"
+        >
+            
+            
+      <ImageView
+          android:id="@+id/friend_head"
+          android:layout_width="50dp"
+    	  android:layout_height="50dp"
+          android:layout_alignParentLeft="true"
+          android:layout_centerVertical="true"
+          android:paddingLeft="5dp"
+          android:src="@drawable/xiaohei" />
+
+      <TextView
+           android:id="@+id/friend_name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_toRightOf="@id/friend_head"
+          android:padding="7dp"
+          android:textColor="#000" />
+
+
+ </RelativeLayout>

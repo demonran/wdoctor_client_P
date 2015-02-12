@@ -24,7 +24,7 @@ public abstract class EIMClientSocket {
 	private boolean isStart=false;                          //判断Socket是否已经启动了
 	public final static int timeOutMillis=60*1000;         //连接超时的时间
 	private  int     server_Socket_Port=9090;                   //要连接的Socket的监听端口
-	private  String     server_IP_Port="115.28.92.230";                    //要连接的Socket的IP
+	private  String     server_IP_Port="192.168.1.114";                    //要连接的Socket的IP
 	private IoHandlerAdapter handlerAdapter;               //消息处理器
 	private NioSocketConnector connector;                  //客户端连接器
 	public  ConnectFuture connectFuture;                   //客户端连接

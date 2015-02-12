@@ -1,3 +1,8 @@
 eclipse.preferences.version=1
+encoding//src/com/bairuitech/anychat=UTF-8
+encoding//src/com/bairuitech/anychat/AnyChatAudioHelper.java=UTF-8
+encoding//src/com/bairuitech/anychat/AnyChatCoreSDK.java=UTF-8
 encoding//src/com/test/wdoctor/adapter/FriendListAdapter.java=UTF-8
 encoding//src/com/test/wdoctor/adapter/MMListAdapter.java=UTF-8
+encoding//src/com/test/wdoctor/utils/DialogFactory.java=UTF-8
+encoding//src/com/test/wdoctor/videochat=UTF-8

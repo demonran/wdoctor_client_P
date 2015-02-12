@@ -19,7 +19,7 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import com.test.wdoctor.service.HoldingService;
+import com.test.wdoctor.service.BackService;
 import com.test.wdoctor.utils.LogUtil;
 
 /** 
@@ -32,9 +32,9 @@ public class PhoneStateChangeListener extends PhoneStateListener {
     private static final String LOGTAG = LogUtil
             .makeLogTag(PhoneStateChangeListener.class);
 
-    private final HoldingService connectionService;
+    private final BackService connectionService;
 
-    public PhoneStateChangeListener(HoldingService connectionService) {
+    public PhoneStateChangeListener(BackService connectionService) {
         this.connectionService = connectionService;
     }
 

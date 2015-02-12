@@ -39,9 +39,13 @@ public class ClientChatSocket extends EIMClientSocket {
 	}
 	
 	public boolean closedSocket() {
-		this.getConnector().dispose();
-		this.setStart(false);
 		Log.i(TAG,"客户关闭了与服务器的连接");
+		if(this.isStart())
+		{
+			this.getConnector().dispose();
+			this.setStart(false);
+		}
+		
 		return true;
 	}
 

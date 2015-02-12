@@ -2,6 +2,7 @@ package com.test.wdoctor;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +15,11 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.csu.message.LoginMessage;
-import com.test.wdoctor.service.HoldingService;
-import com.test.wdoctor.service.HoldingService.MyBinder;
+import com.test.wdoctor.network.socket.ClientChatSocket;
+import com.test.wdoctor.network.socket.ConnectSession;
+import com.test.wdoctor.service.BackService;
+import com.test.wdoctor.service.BackService.MyBinder;
+import com.test.wdoctor.utils.DialogFactory;
 import com.test.wdoctor.utils.LogUtil;
 
 public class Login extends Activity {
@@ -43,7 +47,7 @@ public class Login extends Activity {
 		public void onServiceConnected(ComponentName name, IBinder server) {
 			Log.i(TAG,"°ó¶¨³É¹¦");
 			isBound = true;
-			HoldingService service = ((MyBinder)server).getService();
+			BackService service = ((MyBinder)server).getService();
 			service.connect();
 		}
 	};
@@ -109,7 +113,7 @@ public class Login extends Activity {
      *
      */
     public void startLoginServer(){
-    	Intent service = new Intent(this,HoldingService.class);
+    	Intent service = new Intent(this,BackService.class);
     	this.startService(service);
     	this.bindService(service, serviceConnection, Context.BIND_AUTO_CREATE);
     }

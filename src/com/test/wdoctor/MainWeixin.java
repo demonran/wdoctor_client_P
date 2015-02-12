@@ -29,6 +29,7 @@ import android.widget.PopupWindow;
 import com.test.wdoctor.adapter.FriendListAdapter;
 import com.test.wdoctor.adapter.MMListAdapter;
 import com.test.wdoctor.model.Cache;
+import com.test.wdoctor.model.ChatMsg;
 import com.test.wdoctor.model.MsgUser;
 import com.test.wdoctor.utils.LogUtil;
 
@@ -107,7 +108,7 @@ public class MainWeixin extends Activity {
 //        	MsgUser user = new MsgUser();
 //        	user.setUserName("张三"+i);
 //        	List<ChatMsg> chatMsgs = new ArrayList<ChatMsg>();
-//        	chatMsgs.add(new ChatMsg("小黑", "11","你好",false));
+//        	chatMsgs.add(new ChatMsg("11","小黑", "11","你好",false));
 ////        	user.setChatMsgs(chatMsgs);
 //        	list.add(user);
 //        }

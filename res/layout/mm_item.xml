@@ -41,6 +41,17 @@
           android:padding="7dp"
           android:text="尼滚...."
           android:textColor="#666" />
+       
+           <TextView
+            android:id="@+id/msgCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lastTime"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/message"
+            android:gravity="center"
+            android:padding="7dp"
+            android:textColor="#fff" />
 
 
  </RelativeLayout>

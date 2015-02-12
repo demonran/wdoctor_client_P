@@ -1,5 +1,6 @@
 package com.test.wdoctor.adapter;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,38 +11,41 @@ import android.graphics.Canvas;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
+import android.os.AsyncTask;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.test.wdoctor.R;
 import com.test.wdoctor.model.MsgUser;
+import com.test.wdoctor.utils.HttpUtil;
 
 public class FriendListAdapter extends BaseAdapter{
 	
 	private LayoutInflater mInflater;
 	
-	private Context context;
+	private File cache ;
 	
-	private ListView friendList;
-	
-	List<MsgUser> data = new ArrayList<MsgUser>();
+	List<MsgUser> data ;
 	
 	public FriendListAdapter(Context context )
 	{
-		mInflater = LayoutInflater.from(context);
-		this.context = context;
+		this(context,new ArrayList<MsgUser>());
 	}
 	
 	public FriendListAdapter(Context context ,List<MsgUser> data)
 	{
 		mInflater = LayoutInflater.from(context);
 		this.data = data;
-		this.context = context;
+		 cache = new File(Environment.getExternalStorageDirectory(), "cache");  
+		 if(!cache.exists())
+		 {
+			 cache.mkdir();
+		 }
 	}
 	
 
@@ -80,14 +84,9 @@ public class FriendListAdapter extends BaseAdapter{
 			  viewHolder.headImage = (ImageView) convertView.findViewById(R.id.friend_head);
 			  convertView.setTag(viewHolder);
 	      } 
-	      if(data.get(position).isOnline())
-	      {
-	    	  viewHolder.headImage.setImageResource(R.drawable.xiaohei);
-	      }else
-	      {
-	    	  viewHolder.headImage.setImageBitmap(bitmap2Gray(context ,R.drawable.xiaohei));
-	      }
 	      viewHolder.nameText.setText(data.get(position).getUserName());
+	      
+	      asyncloadImage(viewHolder.headImage, data.get(position)); 
 	      
 //	      syncImageLoader.loadImage(position, data.get(position).get("image"), imageLoadListener);
 	      return convertView;
@@ -99,15 +98,55 @@ public class FriendListAdapter extends BaseAdapter{
         public ImageView headImage;
     }
     
+    private void asyncloadImage(ImageView iv_header, MsgUser msgUser) {
+        AsyncImageTask task = new AsyncImageTask(msgUser, iv_header);
+        task.execute();
+    }
+
+    private final class AsyncImageTask extends AsyncTask<String, Integer, File> {
+        private ImageView iv_header;
+        private MsgUser msgUser;
+
+        public AsyncImageTask(MsgUser msgUser, ImageView iv_header) {
+            this.msgUser = msgUser;
+            this.iv_header = iv_header;
+        }
+
+        @Override
+        protected File doInBackground(String... params) {
+            try {            	 
+                return HttpUtil.getImage("http://7vzmr3.com1.z0.glb.clouddn.com/head_"+msgUser.getUserID()+".jpg", cache);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(File result) {
+            super.onPostExecute(result); 
+            if (iv_header != null && result != null) {
+            	if(msgUser.isOnline())
+      	      {
+            		iv_header.setImageBitmap(BitmapFactory.decodeFile(result.getAbsolutePath()));
+      	      }else
+      	      {
+      	    	  iv_header.setImageBitmap(bitmap2Gray(result.getAbsolutePath()));
+      	      }
+            }
+        }
+    }
+    
     /** 
      * 图片转灰度 
      *  
      * @param bmSrc 
      * @return 
      */  
-    public static Bitmap bitmap2Gray(Context context,int resId)  
+    public static Bitmap bitmap2Gray(String pathName)  
     {  
-    	Bitmap bmSrc = BitmapFactory.decodeResource(context.getResources(), resId);
+//    	Bitmap bmSrc = BitmapFactory.decodeResource(context.getResources(), resId);
+    	Bitmap bmSrc = BitmapFactory.decodeFile(pathName);
         int width, height;  
         height = bmSrc.getHeight();  
         width = bmSrc.getWidth();  

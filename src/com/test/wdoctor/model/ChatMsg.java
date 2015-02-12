@@ -55,14 +55,6 @@ public class ChatMsg{
 		this.text = text;
 	}
 
-	public boolean isComMeg() {
-		return isComMeg;
-	}
-
-	public void setComMeg(boolean isComMeg) {
-		this.isComMeg = isComMeg;
-	}
-
 	public String getFriendQQ() {
 		return friendQQ;
 	}
@@ -70,9 +62,15 @@ public class ChatMsg{
 	public void setFriendQQ(String friendQQ) {
 		this.friendQQ = friendQQ;
 	}
+
+	public boolean isComMeg() {
+		return isComMeg;
+	}
+
+	public void setComMeg(boolean isComMeg) {
+		this.isComMeg = isComMeg;
+	}
+	
 	
 
-	
-	
-	
 }

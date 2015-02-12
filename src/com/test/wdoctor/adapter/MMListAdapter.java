@@ -69,7 +69,8 @@ public class MMListAdapter extends BaseAdapter{
 	      TextView lastTimeText = (TextView) view.findViewById(R.id.lastTime);     
 	      TextView nameText = (TextView) view.findViewById(R.id.name);
 	      ImageView headImage = (ImageView) view.findViewById(R.id.head);  
-	      TextView lastMsgText = (TextView) view.findViewById(R.id.lastMsg);     
+	      TextView lastMsgText = (TextView) view.findViewById(R.id.lastMsg); 
+	      TextView msgCountText = (TextView) view.findViewById(R.id.msgCount); 
 	                
 	      headImage.setImageResource(R.drawable.xiaohei);
 	      nameText.setText(data.get(position).getUserName());
@@ -77,6 +78,8 @@ public class MMListAdapter extends BaseAdapter{
 //	      ChatMsg lastMsg = chatMsgs.get(chatMsgs.size()-1);
 //	      lastTimeText.setText(df.format(lastMsg.getDate()));
 //	      lastMsgText.setText(lastMsg.getText());
+	      
+	      msgCountText.setText("9");
 	      
 //	      syncImageLoader.loadImage(position, data.get(position).get("image"), imageLoadListener);
 	      return view;

@@ -34,9 +34,9 @@ public class ConnectivityReceiver extends BroadcastReceiver {
     private static final String LOGTAG = LogUtil
             .makeLogTag(ConnectivityReceiver.class);
 
-    private HoldingService connectionService;
+    private BackService connectionService;
 
-    public ConnectivityReceiver(HoldingService connectionService) {
+    public ConnectivityReceiver(BackService connectionService) {
         this.connectionService = connectionService;
     }
 

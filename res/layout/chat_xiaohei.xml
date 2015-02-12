@@ -42,40 +42,58 @@
 			    />      
 		</RelativeLayout>
     
-	  
-   <RelativeLayout
-        android:id="@+id/rl_bottom"
+	<LinearLayout 
+	    android:orientation="vertical"
+     	android:id="@+id/rl_bottom"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/chat_footer_bg" >
-        
-        <Button
-        android:id="@+id/btn_send"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:layout_centerVertical="true"
-        android:text="发送"
-        android:enabled="false"
-        android:background="@drawable/chat_send_btn" />
-         
-        
-        <EditText
-        android:id="@+id/et_sendmessage"
+	   android:layout_alignParentBottom="true"> 
+	   <RelativeLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/chat_footer_bg" >
+	        
+	        
+	        <Button
+	        android:id="@+id/btn_send"
+	        android:layout_width="60dp"
+	        android:layout_height="40dp"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="10dp"
+	        android:layout_centerVertical="true"
+	        android:text="+"
+	        android:background="@drawable/chat_send_btn" />
+	       
+	       
+	        <EditText
+	        android:id="@+id/et_sendmessage"
+	        android:layout_width="fill_parent"
+	        android:layout_height="40dp"
+	        android:layout_toLeftOf="@id/btn_send"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp"
+	        android:background="@drawable/login_edit_normal"
+	        android:layout_centerVertical="true"
+	        android:singleLine="true"
+	        android:textSize="18sp"/>
+	    </RelativeLayout>
+	 <!--    -->  
+	    <GridView
+        android:id="@+id/extensionGrid"
+        android:visibility="gone"
         android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:layout_toLeftOf="@id/btn_send"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/login_edit_normal"
-        android:layout_centerVertical="true"
-        android:singleLine="true"
-        android:textSize="18sp"/>
-         
-    </RelativeLayout>
-    
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:horizontalSpacing="10dip"
+        android:numColumns="auto_fit"
+        android:columnWidth="90dp"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dip" >
+    </GridView>
+
+   
+    </LinearLayout>	 
+   
         
     <ListView
     android:id="@+id/listview"

@@ -3,4 +3,21 @@
     <color name="window_bg">#ffeef1f3</color>
     <color name="qqblue">#ff54acea</color>
     <color name="transparent">#00000000</color>
+    
+    	<color name="grey">#363636</color>
+    <color name="dark_grey">#282828</color>
+    <color name="trans_dark_grey">#80282828</color>
+    <color name="white">#ffffff</color>
+    <color name="trans_white">#20ffffff</color>
+    <color name="trans">#00000000</color>
+    <color name="blue">#cc33b5e5</color>
+    <color name="txt_general_bg">#333333</color> 
+     <color name="dancen">#CCCC33</color>
+    
+    <drawable name="user_moble_click">#E099CCFF</drawable>
+ 	<drawable name="user_moble_normal">#E0efefef</drawable>
+ 	<drawable name="user_addiontion_normal">#00000000</drawable>
+ 	<drawable name="meeting_tab_normal">#B3DBF8</drawable>
+ 	<drawable name="meeting_tab_pressed">#FF9933</drawable>
+ 	<drawable name="main_head">#6699CC</drawable>
 </resources>

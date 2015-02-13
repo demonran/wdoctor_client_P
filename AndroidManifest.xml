@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.test.wdoctor"
     android:versionCode="1"
@@ -6,28 +7,25 @@
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="15" />
-    
+
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>  
-	
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RESTART_PACKAGES" />
-    
 
     <application
         android:icon="@drawable/icon"
-        android:label="@string/app_name"
-         >
+        android:label="@string/app_name" >
         <activity
-            android:name="com.test.wdoctor.Appstart"
+            android:name=".Appstart"
             android:label="@string/title_activity_main"
             android:theme="@style/Anim_style2" >
             <intent-filter>
@@ -36,34 +34,63 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.test.wdoctor.WhatsnewDoor" android:theme="@style/Anim_style2" />
-        <activity android:name="com.test.wdoctor.MainWeixin" android:theme="@style/Anim_style2" />
-        <activity android:name="com.test.wdoctor.Login"  android:theme="@android:style/Theme.NoTitleBar" />        
-        <activity android:name="com.test.wdoctor.Welcome"  android:theme="@style/Anim_style2"  />
-        <activity android:name="com.test.wdoctor.Whatsnew"  android:theme="@style/Anim_style2" />
-        <activity android:name="com.test.wdoctor.ChatActivity"  android:theme="@android:style/Theme.NoTitleBar" />
-        <activity android:name="com.test.wdoctor.ShakeActivity"  android:theme="@android:style/Theme.NoTitleBar" />
-        <activity android:name="com.test.wdoctor.InfoXiaohei"  android:theme="@android:style/Theme.NoTitleBar" />
-        <activity android:name="Exit" android:theme="@style/MyDialogStyle" />        
-        <activity android:name="ExitFromSettings" android:theme="@style/MyDialogStyleBottom" /> 
-        <activity android:name="InfoXiaoheiHead" android:theme="@style/HeadScale" />
-        <activity android:name="LoadingActivity" android:theme="@style/MyDialogStyle" />             
-        <activity android:name="MainTopRightDialog" android:theme="@style/MyDialogStyleTop" /> 
-        
-         <activity
+        <activity
+            android:name=".WhatsnewDoor"
+            android:theme="@style/Anim_style2" />
+        <activity
+            android:name=".MainWeixin"
+            android:theme="@style/Anim_style2" />
+        <activity
+            android:name=".Login"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name=".Welcome"
+            android:theme="@style/Anim_style2" />
+        <activity
+            android:name=".Whatsnew"
+            android:theme="@style/Anim_style2" />
+        <activity
+            android:name=".ChatActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name=".ShakeActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name=".InfoXiaohei"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name=".Exit"
+            android:theme="@style/MyDialogStyle" />
+        <activity
+            android:name=".ExitFromSettings"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".InfoXiaoheiHead"
+            android:theme="@style/HeadScale" />
+        <activity
+            android:name=".LoadingActivity"
+            android:theme="@style/MyDialogStyle" />
+        <activity
+            android:name=".MainTopRightDialog"
+            android:theme="@style/MyDialogStyleTop" />
+        <activity
             android:name=".videochat.VideoActivity"
             android:configChanges="orientation|keyboardHidden|navigation" >
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-        <service  android:enabled="true"
+
+        <service
             android:name=".service.BackService"
-            android:label="holdingService">
+            android:enabled="true"
+            android:label="backService" >
         </service>
-        
+
+        <activity
+            android:name="com.test.wdoctor.activity.TuWenActivity"
+            android:label="@string/title_activity_tu_wen" >
+        </activity>
     </application>
-    
 
 </manifest>

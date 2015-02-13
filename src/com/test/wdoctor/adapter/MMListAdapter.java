@@ -72,14 +72,14 @@ public class MMListAdapter extends BaseAdapter{
 	      TextView lastMsgText = (TextView) view.findViewById(R.id.lastMsg); 
 	      TextView msgCountText = (TextView) view.findViewById(R.id.msgCount); 
 	                
-	      headImage.setImageResource(R.drawable.xiaohei);
+	      headImage.setImageResource(R.drawable.default_tuwenchat);
 	      nameText.setText(data.get(position).getUserName());
 //	      List<ChatMsg> chatMsgs = data.get(position).getChatMsgs();
 //	      ChatMsg lastMsg = chatMsgs.get(chatMsgs.size()-1);
 //	      lastTimeText.setText(df.format(lastMsg.getDate()));
 //	      lastMsgText.setText(lastMsg.getText());
 	      
-	      msgCountText.setText("9");
+	      msgCountText.setText("1");
 	      
 //	      syncImageLoader.loadImage(position, data.get(position).get("image"), imageLoadListener);
 	      return view;

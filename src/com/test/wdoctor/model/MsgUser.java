@@ -17,6 +17,14 @@ public class MsgUser implements Serializable {
 	private String personWord;     //用户的个性签名
 	private boolean isOnline=false;
 	
+	
+	
+	public MsgUser() {
+	}
+	public MsgUser(String userID, String userName) {
+		this.userID = userID;
+		this.userName = userName;
+	}
 	public String getUserID() {
 		return userID;
 	}

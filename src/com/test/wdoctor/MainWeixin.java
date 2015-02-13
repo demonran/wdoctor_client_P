@@ -21,15 +21,18 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 
+import com.test.wdoctor.activity.TuWenActivity;
 import com.test.wdoctor.adapter.FriendListAdapter;
+import com.test.wdoctor.adapter.FunctionGridAdapter;
 import com.test.wdoctor.adapter.MMListAdapter;
 import com.test.wdoctor.model.Cache;
-import com.test.wdoctor.model.ChatMsg;
+import com.test.wdoctor.model.Function;
 import com.test.wdoctor.model.MsgUser;
 import com.test.wdoctor.utils.LogUtil;
 
@@ -101,17 +104,28 @@ public class MainWeixin extends Activity {
         LayoutInflater mLi = LayoutInflater.from(this);
         //微信
         View view1 = mLi.inflate(R.layout.main_tab_weixin, null);
+        
+        GridView fucntionGV = (GridView)view1.findViewById(R.id.grid_function);
+        
+        List<Function> functions = new ArrayList<Function>();
+        
+        functions.add(new Function(0,"图文咨询"));
+        functions.add(new Function(1,"电话咨询"));
+        functions.add(new Function(2,"私人医生"));
+        functions.add(new Function(3,"上门会诊"));
+        functions.add(new Function(4,"紧急加号"));
+        functions.add(new Function(5,"紧急住院"));
+        functions.add(new Function(6,"科室动态"));
+        functions.add(new Function(7,"医者联盟"));
+        
+        fucntionGV.setAdapter(new FunctionGridAdapter(this, functions));
+        
         ListView mmList = (ListView)view1.findViewById(R.id.mm_list);
         List<MsgUser> list = new ArrayList<MsgUser>();
-//        for(int i=0;i<5;i++)
-//        {
-//        	MsgUser user = new MsgUser();
-//        	user.setUserName("张三"+i);
-//        	List<ChatMsg> chatMsgs = new ArrayList<ChatMsg>();
-//        	chatMsgs.add(new ChatMsg("11","小黑", "11","你好",false));
-////        	user.setChatMsgs(chatMsgs);
-//        	list.add(user);
-//        }
+        
+    	list.add(new MsgUser("tuwenzixun","张三"));
+    	list.add(new MsgUser("dianhuazixun","王四"));
+    	
         mmListAdapter = new MMListAdapter(this,list);
         mmList.setAdapter(mmListAdapter);
        
@@ -168,15 +182,44 @@ public class MainWeixin extends Activity {
 		mTabPager.setAdapter(mPagerAdapter);
 		
 		//添加事件
-		mmList.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-				MsgUser msgUser = mmListAdapter.getItem(position);
-				Intent intent = new Intent (MainWeixin.this,ChatActivity.class);
-				intent.putExtra("friend", msgUser);
-				startActivity(intent);
-			}
-		});
+//		mmList.setOnItemClickListener(new OnItemClickListener() {
+//			@Override
+//			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+//				MsgUser msgUser = mmListAdapter.getItem(position);
+//				Intent intent = null;
+//				if(msgUser.getUserID().equals("tuwenzixun"))
+//				{
+//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
+//				}else if(msgUser.getUserID().equals("dianhuazixun"))
+//				{
+//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
+//				}else if(msgUser.getUserID().equals("sirenyisheng"))
+//				{
+//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
+//				}else if(msgUser.getUserID().equals("shangmenhuizhen"))
+//				{
+//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
+//				}else if(msgUser.getUserID().equals("jinjijiahao"))
+//				{
+//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
+//				}else if(msgUser.getUserID().equals("jinjizhuyuan"))
+//				{
+//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
+//				}else if(msgUser.getUserID().equals("keshidongtai"))
+//				{
+//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
+//				}else if(msgUser.getUserID().equals("yizhelianmeng"))
+//				{
+//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
+//				}else
+//				{
+//					intent = new Intent (MainWeixin.this,ChatActivity.class);
+//				}
+//				
+//				intent.putExtra("friend", msgUser);
+//				startActivity(intent);
+//			}
+//		});
 	    friendList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {

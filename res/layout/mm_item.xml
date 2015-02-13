@@ -6,7 +6,6 @@
             android:background="@drawable/mm_listitem"
         >
             
-            
       <ImageView
           android:id="@+id/head"
           android:layout_width="55dp"
@@ -39,7 +38,7 @@
           android:layout_toRightOf="@id/head"
           android:layout_alignParentBottom="true"
           android:padding="7dp"
-          android:text="尼滚...."
+          android:text="...."
           android:textColor="#666" />
        
            <TextView

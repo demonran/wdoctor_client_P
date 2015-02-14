@@ -14,16 +14,22 @@ public class Welcome extends Activity {
         setContentView(R.layout.welcome);
     }
     public void welcome_login(View v) {  
-      	Intent intent = new Intent();
-		intent.setClass(Welcome.this,Login.class);
-		startActivity(intent);
-		//this.finish();
+//TODO      	Intent intent = new Intent();
+//		intent.setClass(Welcome.this,Login.class);
+//		startActivity(intent);
       }  
     public void welcome_register(View v) {  
       	Intent intent = new Intent();
 		intent.setClass(Welcome.this,MainWeixin.class);
 		startActivity(intent);
 		//this.finish();
-      }  
+      }
+    
+    public void switchUser(View v)
+    {
+    	Intent intent = new Intent();
+		intent.setClass(Welcome.this,Login.class);
+		startActivity(intent);
+    }
    
 }

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
- <LinearLayout   xmlns:android="http://schemas.android.com/apk/res/android"
+ <RelativeLayout   xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"        
         android:orientation="vertical"
         android:background="#eee" >
         
-           <RelativeLayout 
+           <RelativeLayout
   			android:layout_width="fill_parent"
   			android:layout_height="45dp"
-  			android:id="@+id/title" 
+  			android:id="@+id/welcome_title" 
   			android:background="@drawable/title_bar"
   			android:gravity="center_vertical"  >  
   			
@@ -36,46 +36,51 @@
 			    />      
 		</RelativeLayout>
 
-        
+         <LinearLayout
+             android:paddingTop="80sp"
+             android:layout_below="@id/welcome_title"  
+	        android:layout_width="fill_parent"
+	        android:layout_height="match_parent"        
+	        android:orientation="vertical"
+	        android:gravity="center_horizontal"
+	        android:background="#eee" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center" >
-     <!--        
             <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/copyright" />
-       -->      
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/head_80002" />
+            
             <TextView
             android:layout_width="wrap_content"
-            android:drawableLeft="@drawable/copyright"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="@string/welcome_title"
+            android:layout_marginTop="10dp"
             android:textColor="#000000"
-            android:textSize="35sp" />
-            
-        </LinearLayout>
-<!-- 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="By：谜@BUAA"
-            android:textColor="#000"
-            android:textSize="30dp" />
- -->
+            android:text="999999"
+             android:textSize="20sp"/>
+    <!--       --> 
+        <EditText 
+		    android:id="@+id/wolcome_passwd_edit"
+		    android:inputType="textPassword"
+		    android:layout_width="fill_parent"
+		    android:layout_height="40dp"
+		    android:textColor="#000"
+		    android:textSize="15sp"
+		    android:textColorHint="#AAAAAA"
+		    android:layout_marginTop="25dp"
+		    android:layout_marginLeft="20dp"
+		    android:layout_marginRight="20dp"
+		    android:singleLine="true"
+		    android:hint="请填写密码"/>
+      
         <Button
             android:id="@+id/main_login_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_style_green"
             android:gravity="center"
-            android:paddingLeft="130dp"
-            android:paddingRight="130dp"
+            android:layout_marginLeft="20dp"
+		    android:layout_marginRight="20dp"
             android:layout_marginTop="15dp"
             android:text="@string/welcome_login"
             android:textColor="#ffffff"
@@ -86,24 +91,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="6dp"
-            android:text="@string/welcome_login_tips"
+            android:text="登陆遇到问题？"
+            android:layout_gravity="right"
             android:textSize="14sp"
             android:textColor="#444" />
-
+     </LinearLayout>
+  
         <Button
             android:id="@+id/main_regist_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/btn_style_white"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40sp"
             android:gravity="center"
-            android:paddingLeft="130dp"
-            android:paddingRight="130dp"
+            android:background="@drawable/btn_style_white"
             android:text="@string/welcome_regist"
             android:textColor="#000000"
             android:textSize="18sp"
             android:onClick="welcome_register"  />
-
+  <!-- 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -112,4 +119,7 @@
             android:text="@string/welcome_regist_tips"
             android:textSize="14sp"
             android:textColor="#444"  />
-    </LinearLayout>
+            
+           --> 
+        
+    </RelativeLayout>

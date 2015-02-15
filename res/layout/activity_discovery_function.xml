@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="fill_parent"
+  			android:layout_height="45dp"
+  			android:background="@drawable/title_bar"
+  			android:gravity="center_vertical" 
+    >
+  			<Button
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="返回"
+            android:textSize="14sp"
+            android:textColor="#fff"
+            android:onClick="fucntion_back"
+            android:background="@drawable/title_btn_back"
+		    />    
+      		<TextView
+      		    android:id="@+id/discovery_function_title"
+        		android:layout_width="wrap_content" 
+        		android:layout_height="wrap_content" 
+        		android:layout_centerInParent="true"
+        		android:textSize="20sp"	
+        		android:text="图文咨询"	
+				android:textColor="#ffffff" /> 
+			<ImageButton 
+			    android:layout_width="67dp" 
+        		android:layout_height="wrap_content"
+        		android:layout_alignParentRight="true" 
+        		android:layout_centerVertical="true"
+        		android:layout_marginRight="5dp"
+        		android:src="@drawable/mm_title_btn_contact_normal"
+				android:background="@drawable/title_btn_right"
+			    />      
+
+</RelativeLayout>

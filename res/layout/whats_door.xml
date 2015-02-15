@@ -27,7 +27,7 @@
         	android:gravity="center" 
         	android:layout_alignParentTop="true"
             android:layout_marginTop="35dp"
-        	android:text=" \n \n微信，是一个生活方式\n \n "         	
+        	android:text="\n \n像国外医生一样，\n \n收入应有的体面、尊重和价值！\n \n "         	
         	android:textSize="22sp"
         	android:textColor="#fff" 
         />

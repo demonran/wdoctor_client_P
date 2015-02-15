@@ -13,6 +13,7 @@ import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +24,12 @@ import android.widget.TextView;
 import com.test.wdoctor.R;
 import com.test.wdoctor.model.MsgUser;
 import com.test.wdoctor.utils.HttpUtil;
+import com.test.wdoctor.utils.LogUtil;
 
 public class FriendListAdapter extends BaseAdapter{
 	
+	public static final String TAG = LogUtil.makeLogTag(FriendListAdapter.class);
+
 	private LayoutInflater mInflater;
 	
 	private File cache ;
@@ -40,7 +44,7 @@ public class FriendListAdapter extends BaseAdapter{
 	public FriendListAdapter(Context context ,List<MsgUser> data)
 	{
 		mInflater = LayoutInflater.from(context);
-		this.data = data;
+		setData(data);
 		 cache = new File(Environment.getExternalStorageDirectory(), "cache");  
 		 if(!cache.exists())
 		 {
@@ -48,9 +52,17 @@ public class FriendListAdapter extends BaseAdapter{
 		 }
 	}
 	
+	private List<MsgUser> createOriginData()
+	{
+		List<MsgUser> originData = new ArrayList<MsgUser>();
+		originData.add(new MsgUser("newFriend", "新的朋友"));
+		originData.add(new MsgUser("tagGroup", "标签分组"));
+		return originData;
+	}
+	
 
 	public void setData(List<MsgUser> data){
-		this.data.clear();
+		this.data= createOriginData();
 		this.data.addAll(data);
 	}
 
@@ -86,7 +98,18 @@ public class FriendListAdapter extends BaseAdapter{
 	      } 
 	      viewHolder.nameText.setText(data.get(position).getUserName());
 	      
-	      asyncloadImage(viewHolder.headImage, data.get(position)); 
+	      MsgUser msgUser = data.get(position);
+	      if(msgUser.getUserID().equals("newFriend"))
+	      {
+	    	  viewHolder.headImage.setImageResource(R.drawable.default_fmessage);
+	      }else if(msgUser.getUserID().equals("tagGroup"))
+	      {
+	    	  viewHolder.headImage.setImageResource(R.drawable.default_contactlabel);
+	      }else
+	      {
+	    	  asyncloadImage(viewHolder.headImage, data.get(position)); 
+	      }
+	     
 	      
 //	      syncImageLoader.loadImage(position, data.get(position).get("image"), imageLoadListener);
 	      return convertView;
@@ -125,6 +148,10 @@ public class FriendListAdapter extends BaseAdapter{
         @Override
         protected void onPostExecute(File result) {
             super.onPostExecute(result); 
+            if(result == null)
+            {
+            	iv_header.setImageResource(R.drawable.xiaohei);
+            }
             if (iv_header != null && result != null) {
             	if(msgUser.isOnline())
       	      {

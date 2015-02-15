@@ -32,7 +32,8 @@
         		android:layout_alignParentRight="true" 
         		android:layout_marginRight="5dp"
 				android:background="@drawable/title_btn_right"
-				android:onClick="switchUser"
+				android:onClick="welcome_switchUser"
+				android:clickable="true"
 			    />      
 		</RelativeLayout>
 
@@ -58,21 +59,21 @@
             android:textColor="#000000"
             android:text="999999"
              android:textSize="20sp"/>
-    <!--       --> 
-        <EditText 
+    <!--    -->     
+        <com.test.wdoctor.componet.LineEditText 
 		    android:id="@+id/wolcome_passwd_edit"
 		    android:inputType="textPassword"
 		    android:layout_width="fill_parent"
 		    android:layout_height="40dp"
 		    android:textColor="#000"
 		    android:textSize="15sp"
-		    android:textColorHint="#AAAAAA"
 		    android:layout_marginTop="25dp"
 		    android:layout_marginLeft="20dp"
 		    android:layout_marginRight="20dp"
+		    android:background="@null"
 		    android:singleLine="true"
 		    android:hint="请填写密码"/>
-      
+     
         <Button
             android:id="@+id/main_login_btn"
             android:layout_width="fill_parent"

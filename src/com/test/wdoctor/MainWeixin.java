@@ -2,8 +2,11 @@ package com.test.wdoctor;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +19,6 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.WindowManager.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
@@ -26,11 +28,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.SimpleAdapter;
 
+import com.test.wdoctor.activity.DiscoveryFunctionActivity;
 import com.test.wdoctor.activity.TuWenActivity;
 import com.test.wdoctor.adapter.FriendListAdapter;
 import com.test.wdoctor.adapter.FunctionGridAdapter;
 import com.test.wdoctor.adapter.MMListAdapter;
+import com.test.wdoctor.componet.ContactsTab;
+import com.test.wdoctor.componet.DiscoveryTab;
+import com.test.wdoctor.componet.PrivateDoctorTab;
 import com.test.wdoctor.model.Cache;
 import com.test.wdoctor.model.Function;
 import com.test.wdoctor.model.MsgUser;
@@ -60,7 +67,6 @@ public class MainWeixin extends Activity {
 	
 	private FriendListAdapter frinedListAdapter;
 	
-	private MMListAdapter mmListAdapter ;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -103,51 +109,20 @@ public class MainWeixin extends Activity {
       //将要分页显示的View装入数组中
         LayoutInflater mLi = LayoutInflater.from(this);
         //微信
-        View view1 = mLi.inflate(R.layout.main_tab_weixin, null);
-        
-        GridView fucntionGV = (GridView)view1.findViewById(R.id.grid_function);
-        
-        List<Function> functions = new ArrayList<Function>();
-        
-        functions.add(new Function(0,"图文咨询"));
-        functions.add(new Function(1,"电话咨询"));
-        functions.add(new Function(2,"私人医生"));
-        functions.add(new Function(3,"上门会诊"));
-        functions.add(new Function(4,"紧急加号"));
-        functions.add(new Function(5,"紧急住院"));
-        functions.add(new Function(6,"科室动态"));
-        functions.add(new Function(7,"医者联盟"));
-        
-        fucntionGV.setAdapter(new FunctionGridAdapter(this, functions));
-        
-        ListView mmList = (ListView)view1.findViewById(R.id.mm_list);
-        List<MsgUser> list = new ArrayList<MsgUser>();
-        
-    	list.add(new MsgUser("tuwenzixun","张三"));
-    	list.add(new MsgUser("dianhuazixun","王四"));
-    	
-        mmListAdapter = new MMListAdapter(this,list);
-        mmList.setAdapter(mmListAdapter);
-       
+        PrivateDoctorTab privateDoctorTab = new PrivateDoctorTab(this);
         
         //通讯录
-        View view2 = mLi.inflate(R.layout.main_tab_address, null);
-        ListView friendList = null;
-        if(view2 != null)
-        {
-        	friendList =(ListView)view2.findViewById(R.id.friend_list);
-        	frinedListAdapter = new FriendListAdapter(this,Cache.getInstance().getfriendList());
-            friendList.setAdapter(frinedListAdapter);
-        }
-        
-        View view3 = mLi.inflate(R.layout.main_tab_friends, null);
+        ContactsTab contactsTab = new ContactsTab(this);
+       
+        //发现
+        DiscoveryTab discoveryTab = new DiscoveryTab(this);
         View view4 = mLi.inflate(R.layout.main_tab_settings, null);
         
       //每个页面的view数据
         final ArrayList<View> views = new ArrayList<View>();
-        views.add(view1);
-        views.add(view2);
-        views.add(view3);
+        views.add(privateDoctorTab.getView());
+        views.add(contactsTab.getView());
+        views.add(discoveryTab.getView());
         views.add(view4);
       //填充ViewPager的数据适配器
         PagerAdapter mPagerAdapter = new PagerAdapter() {
@@ -181,55 +156,8 @@ public class MainWeixin extends Activity {
 		
 		mTabPager.setAdapter(mPagerAdapter);
 		
-		//添加事件
-//		mmList.setOnItemClickListener(new OnItemClickListener() {
-//			@Override
-//			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-//				MsgUser msgUser = mmListAdapter.getItem(position);
-//				Intent intent = null;
-//				if(msgUser.getUserID().equals("tuwenzixun"))
-//				{
-//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
-//				}else if(msgUser.getUserID().equals("dianhuazixun"))
-//				{
-//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
-//				}else if(msgUser.getUserID().equals("sirenyisheng"))
-//				{
-//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
-//				}else if(msgUser.getUserID().equals("shangmenhuizhen"))
-//				{
-//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
-//				}else if(msgUser.getUserID().equals("jinjijiahao"))
-//				{
-//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
-//				}else if(msgUser.getUserID().equals("jinjizhuyuan"))
-//				{
-//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
-//				}else if(msgUser.getUserID().equals("keshidongtai"))
-//				{
-//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
-//				}else if(msgUser.getUserID().equals("yizhelianmeng"))
-//				{
-//					intent = new Intent (MainWeixin.this,TuWenActivity.class);
-//				}else
-//				{
-//					intent = new Intent (MainWeixin.this,ChatActivity.class);
-//				}
-//				
-//				intent.putExtra("friend", msgUser);
-//				startActivity(intent);
-//			}
-//		});
-	    friendList.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-				MsgUser msgUser = frinedListAdapter.getItem(position);
-				Intent intent = new Intent (MainWeixin.this,ChatActivity.class);
-				intent.putExtra(Constants.MESSAGE_FRIENDQQ, msgUser.getUserID());
-				startActivity(intent);
-			}
-		});
 		
+	    
     }
     
     /**
@@ -395,6 +323,12 @@ public class MainWeixin extends Activity {
 	 }
 	public void btn_shake(View v) {                                   //手机摇一摇
 		Intent intent = new Intent (MainWeixin.this,ShakeActivity.class);			
+		startActivity(intent);	
+	}
+	
+	public void discovery_function(View v) {                                   //其他功能
+		Intent intent = new Intent (MainWeixin.this,DiscoveryFunctionActivity.class);
+		intent.putExtra("title","朋友圈");
 		startActivity(intent);	
 	}
 	

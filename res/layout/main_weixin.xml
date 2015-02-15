@@ -6,6 +6,49 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="#eee" >  
+    
+            <RelativeLayout 
+              android:id="@+id/main_top"
+              android:layout_alignParentTop="true"
+	  			android:layout_width="fill_parent"
+	  			android:layout_height="45dp"
+	  			android:background="@drawable/title_bar"
+	  			android:gravity="center_vertical"  >  
+  			
+            
+      		<TextView
+      		    android:paddingLeft="10dp"
+        		android:layout_width="wrap_content" 
+        		android:layout_height="wrap_content" 
+        		android:text="私人医生"
+        		android:layout_centerVertical="true"
+        		android:textSize="20sp"		
+				android:textColor="#ffffff" /> 
+				
+			<ImageView 
+			    android:id="@+id/right_btn"
+			     android:layout_width="25dp"
+    	  		android:layout_height="25dp"
+        		android:layout_alignParentRight="true" 
+        		android:layout_centerVertical="true"
+        		android:layout_marginRight="5dp"
+        		android:src="@drawable/add"
+        		android:clickable="true"
+				android:onClick="btnmainright"
+			    />
+			
+			<ImageView 
+			    android:id="@+id/main_search"
+			     android:layout_width="30dp"
+    	  		android:layout_height="30dp"
+        		android:layout_toLeftOf="@id/right_btn" 
+        		android:layout_centerVertical="true"
+        		android:layout_marginRight="20dp"
+        		android:src="@drawable/search_bar_icon_normal"
+        		android:clickable="true"
+				android:onClick="btnmainright"
+			    />
+		</RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/main_bottom"
@@ -121,7 +164,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content" 
-    	android:layout_alignParentTop="true"
+    	android:layout_below="@id/main_top"
     	android:layout_above="@id/main_bottom"       
         android:orientation="vertical" >
         

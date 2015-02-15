@@ -1,12 +1,10 @@
 package com.test.wdoctor.activity;
 
-import com.test.wdoctor.R;
-import com.test.wdoctor.R.layout;
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+
+import com.test.wdoctor.R;
 
 public class TuWenActivity extends Activity {
 
@@ -14,5 +12,10 @@ public class TuWenActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tu_wen);
+	}
+	
+	public void tuwen_back(View view)
+	{
+		this.finish();
 	}
 }

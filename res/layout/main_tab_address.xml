@@ -4,33 +4,20 @@
     android:layout_height="fill_parent"
     android:background="#eee"
     android:orientation="vertical" >
-        
-        <RelativeLayout 
-  			android:layout_width="fill_parent"
-  			android:layout_height="45dp"
-  			android:id="@+id/title" 
-  			android:background="@drawable/title_bar"
-  			android:gravity="center_vertical"  >  
-      		<TextView
-        		android:layout_width="wrap_content" 
-        		android:layout_height="wrap_content" 
-        		android:text="通讯录"
-        		android:layout_centerInParent="true"
-        		android:textSize="20sp"		
-				android:textColor="#ffffff" /> 
-			<Button 
-			    android:layout_width="67dp" 
-        		android:layout_height="wrap_content"
-        		android:layout_alignParentRight="true" 
-        		android:layout_centerVertical="true"
-        		android:layout_marginRight="5dp"
-        		android:text="群聊"
-        		android:textColor="#fff"
-        		android:textSize="15dp"
-				android:background="@drawable/title_btn_right"
-			    />      
-		</RelativeLayout>
 		
+            <GridView
+	        android:id="@+id/friend_grid"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dip"
+	        android:layout_marginTop="5dip"
+	        android:gravity="center_vertical"
+	        android:horizontalSpacing="5dip"
+	        android:numColumns="auto_fit"
+	        android:stretchMode="columnWidth"
+	        android:background="#ddd"
+	        android:verticalSpacing="5dip" >
+	    </GridView>
           <ListView 
              android:layout_width="match_parent"
             android:layout_height="match_parent"

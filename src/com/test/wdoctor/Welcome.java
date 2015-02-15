@@ -4,6 +4,7 @@ package com.test.wdoctor;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class Welcome extends Activity {
@@ -14,9 +15,9 @@ public class Welcome extends Activity {
         setContentView(R.layout.welcome);
     }
     public void welcome_login(View v) {  
-//TODO      	Intent intent = new Intent();
-//		intent.setClass(Welcome.this,Login.class);
-//		startActivity(intent);
+      	Intent intent = new Intent();
+		intent.setClass(Welcome.this,Whatsnew.class);
+		startActivity(intent);
       }  
     public void welcome_register(View v) {  
       	Intent intent = new Intent();
@@ -25,8 +26,9 @@ public class Welcome extends Activity {
 		//this.finish();
       }
     
-    public void switchUser(View v)
+    public void welcome_switchUser(View v)
     {
+    	Log.i("TAG","welcome_switchUser");
     	Intent intent = new Intent();
 		intent.setClass(Welcome.this,Login.class);
 		startActivity(intent);

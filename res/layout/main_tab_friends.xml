@@ -5,59 +5,84 @@
         android:background="#eee"
         android:orientation="vertical" >
         
-        <LinearLayout 
-  			android:layout_width="fill_parent"
-  			android:layout_height="45dp"
-  			android:id="@+id/title" 
-  			android:background="@drawable/title_bar"
-  			android:gravity="center_horizontal|center_vertical"  >  
-      		<TextView
-        		android:layout_width="wrap_content" 
-        		android:layout_height="wrap_content" 
-        		android:text="朋友们"
-        		android:textSize="20sp"		
-				android:textColor="#ffffff" />       
-			</LinearLayout>
-		<RelativeLayout      				    
+        <!--   
+        <ListView 
+             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+             android:divider="#ddd"  
+    		android:dividerHeight="1px" 
+            android:id="@+id/discovery_list"/>
+       -->
+       <RelativeLayout      				    
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="14dp"
             android:gravity="center_vertical"
             android:clickable="true"
-            android:background="@drawable/preference_single_item" >
+            android:background="#fff"
+            android:onClick="discovery_function" >
       		<ImageView
-      		    android:id="@+id/add_friend"
+      		    android:id="@+id/discovery_friends_circle"
+            	android:layout_width="35dp"
+        		android:layout_height="35dp"   
+        		android:scaleType="centerInside"        	     	
+        		android:layout_centerVertical="true"
+        		android:layout_alignParentLeft="true"
+        		android:layout_marginLeft="10sp"
+        		android:src="@drawable/default_feedsapp" />    
+            <TextView
+        		android:layout_width="wrap_content" 
+        		android:layout_height="wrap_content"
+        		android:layout_toRightOf="@id/discovery_friends_circle"
+        		android:layout_centerVertical="true"
+        		android:padding="8dp" 
+        		android:text="朋友圈"
+        		android:textSize="17sp"		
+				android:textColor="#000" /> 
+			<ImageView
+            	android:layout_width="40dp"
+    	  		android:layout_height="40dp"  
+        		android:layout_centerVertical="true"
+        		android:layout_alignParentRight="true"
+        		android:layout_marginRight="20sp"
+        		android:src="@drawable/head_80002" />      					
+   		</RelativeLayout>
+ <!--   ********************************************************************   -->  		
+       <RelativeLayout      				    
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+             android:layout_marginTop="18dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:background="#fff"
+            android:onClick="discovery_function" >
+      		<ImageView
+      		    android:id="@+id/discovery_saoyisao"
             	android:layout_width="wrap_content"
         		android:layout_height="wrap_content"        	     	
         		android:scaleType="matrix"
         		android:layout_centerVertical="true"
         		android:layout_alignParentLeft="true"
-        		android:src="@drawable/find_more_friend_addfriend_icon" />    
+        		android:layout_marginLeft="10sp"
+        		android:src="@drawable/find_more_friend_shake" />    
             <TextView
         		android:layout_width="wrap_content" 
         		android:layout_height="wrap_content"
-        		android:layout_toRightOf="@id/add_friend"
+        		android:layout_toRightOf="@id/discovery_saoyisao"
         		android:layout_centerVertical="true"
         		android:padding="8dp" 
-        		android:text="添加朋友"
+        		android:text="扫一扫"
         		android:textSize="17sp"		
 				android:textColor="#000" /> 
-			<ImageView
-            	android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"        	     	
-        		android:scaleType="matrix"
-        		android:layout_centerVertical="true"
-        		android:layout_alignParentRight="true"
-        		android:src="@drawable/mm_submenu" />      					
    		</RelativeLayout>
-   		
 		<RelativeLayout      				    
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="1dp"
             android:gravity="center_vertical"
             android:clickable="true"
-            android:background="@drawable/preference_single_item"
+            android:background="#fff"
             android:onClick="btn_shake" >
       		<ImageView
       		    android:id="@+id/add_friend_shake"
@@ -66,6 +91,7 @@
         		android:scaleType="matrix"
         		android:layout_centerVertical="true"
         		android:layout_alignParentLeft="true"
+        		android:layout_marginLeft="10sp"
         		android:src="@drawable/find_more_friend_shake" />    
             <TextView
         		android:layout_width="wrap_content" 
@@ -76,13 +102,147 @@
         		android:text="摇一摇"
         		android:textSize="17sp"		
 				android:textColor="#000" /> 
-			<ImageView
+   		</RelativeLayout>
+   		
+		<!--   ********************************************************************   -->  		
+       <RelativeLayout      				    
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+             android:layout_marginTop="18dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:background="#fff"
+            android:onClick="discovery_function" >
+      		<ImageView
+      		    android:id="@+id/discovery_monitoring_tools"
             	android:layout_width="wrap_content"
         		android:layout_height="wrap_content"        	     	
         		android:scaleType="matrix"
         		android:layout_centerVertical="true"
-        		android:layout_alignParentRight="true"
-        		android:src="@drawable/mm_submenu" />      					
+        		android:layout_alignParentLeft="true"
+        		android:layout_marginLeft="10sp"
+        		android:src="@drawable/find_more_friend_shake" />    
+            <TextView
+        		android:layout_width="wrap_content" 
+        		android:layout_height="wrap_content"
+        		android:layout_toRightOf="@id/discovery_monitoring_tools"
+        		android:layout_centerVertical="true"
+        		android:padding="8dp" 
+        		android:text="监控工具"
+        		android:textSize="17sp"		
+				android:textColor="#000" /> 
    		</RelativeLayout>
-
+   		<RelativeLayout      				    
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="1dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:background="#fff"
+            android:onClick="discovery_function" >
+      		<ImageView
+      		    android:id="@+id/add_medicine_midwifery"
+            	android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"        	     	
+        		android:scaleType="matrix"
+        		android:layout_centerVertical="true"
+        		android:layout_alignParentLeft="true"
+        		android:layout_marginLeft="10sp"
+        		android:src="@drawable/find_more_friend_shake" />    
+            <TextView
+        		android:layout_width="wrap_content" 
+        		android:layout_height="wrap_content"
+        		android:layout_toRightOf="@id/add_medicine_midwifery"
+        		android:layout_centerVertical="true"
+        		android:padding="8dp" 
+        		android:text="用药助产"
+        		android:textSize="17sp"		
+				android:textColor="#000" /> 
+   		</RelativeLayout>
+   		
+       <!--   ********************************************************************   -->  		
+       <RelativeLayout      				    
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+             android:layout_marginTop="18dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:background="#fff"
+            android:onClick="discovery_function" >
+      		<ImageView
+      		    android:id="@+id/discovery_science_research"
+            	android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"        	     	
+        		android:scaleType="matrix"
+        		android:layout_centerVertical="true"
+        		android:layout_alignParentLeft="true"
+        		android:layout_marginLeft="10sp"
+        		android:src="@drawable/find_more_friend_shake" />    
+            <TextView
+        		android:layout_width="wrap_content" 
+        		android:layout_height="wrap_content"
+        		android:layout_toRightOf="@id/discovery_science_research"
+        		android:layout_centerVertical="true"
+        		android:padding="8dp" 
+        		android:text="科学与调研"
+        		android:textSize="17sp"		
+				android:textColor="#000" /> 
+   		</RelativeLayout>
+   		
+        <!--   ********************************************************************   -->  		
+       <RelativeLayout      				    
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+             android:layout_marginTop="18dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:background="#fff"
+            android:onClick="discovery_function" >
+      		<ImageView
+      		    android:id="@+id/discovery_law"
+            	android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"        	     	
+        		android:scaleType="matrix"
+        		android:layout_centerVertical="true"
+        		android:layout_alignParentLeft="true"
+        		android:layout_marginLeft="10sp"
+        		android:src="@drawable/find_more_friend_shake" />    
+            <TextView
+        		android:layout_width="wrap_content" 
+        		android:layout_height="wrap_content"
+        		android:layout_toRightOf="@id/discovery_law"
+        		android:layout_centerVertical="true"
+        		android:padding="8dp" 
+        		android:text="科学与调研"
+        		android:textSize="17sp"		
+				android:textColor="#000" /> 
+   		</RelativeLayout>
+   		<RelativeLayout      				    
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="1dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:background="#fff"
+            android:onClick="discovery_function" >
+      		<ImageView
+      		    android:id="@+id/add_medicine_statistics"
+            	android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"        	     	
+        		android:scaleType="matrix"
+        		android:layout_centerVertical="true"
+        		android:layout_alignParentLeft="true"
+        		android:layout_marginLeft="10sp"
+        		android:src="@drawable/find_more_friend_shake" />    
+            <TextView
+        		android:layout_width="wrap_content" 
+        		android:layout_height="wrap_content"
+        		android:layout_toRightOf="@id/add_medicine_statistics"
+        		android:layout_centerVertical="true"
+        		android:padding="8dp" 
+        		android:text="医学统计咨询"
+        		android:textSize="17sp"		
+				android:textColor="#000" /> 
+   		</RelativeLayout>
+	
     </LinearLayout>
